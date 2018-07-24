@@ -2,21 +2,17 @@ package daocloud.oauth2.sso.filter;
 
 import cn.hutool.cache.CacheUtil;
 import cn.hutool.cache.impl.TimedCache;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Vector;
-import java.util.concurrent.PriorityBlockingQueue;
 
 @Component
 public class LoginFilter extends OncePerRequestFilter {
@@ -25,10 +21,6 @@ public class LoginFilter extends OncePerRequestFilter {
     public TimedCache<String, Object> getTimedCache() {
         return timedCache;
     }
-
-    @Autowired
-    private HttpServletRequest httpServletRequest;
-
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         String uri = httpServletRequest.getServletPath();
