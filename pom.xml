@@ -5,7 +5,7 @@
 
 	<groupId>daocloud.starter.sso</groupId>
 	<artifactId>starter</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>ssostarter</name>
@@ -53,6 +53,19 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<distributionManagement>
+		<repository>
+			<id>jrq-releases</id>
+			<name>Jrq Release Repository</name>
+			<url>http://220.194.70.51:32081/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>jrq-snapshots</id>
+			<name>Jrq Snapshot Repository</name>
+			<url>http://220.194.70.51:32081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<build>
 		<plugins>
